@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  storyblokInit,
-  apiPlugin,
-} from "@storyblok/react";
+import { storyblokInit, apiPlugin } from "@storyblok/react";
 import type { SbReactComponentsMap } from "@storyblok/react";
 import Page from "./page.component";
 import Feature from "./Feature/Feature";
@@ -15,12 +12,8 @@ import "../components/Footer/footer.css";
 import "../components/header/navigation.css";
 import ProductenComponent from "./Homecomponent";
 import Hero from "./hero";
-import AboutSection from "./AboutSection";
 import Sectie from "./Sectie";
 import ImageComponent from "./ImageComponent";
-import imageblok1 from "./imageblok";
-import imageblok2 from "./imageblok";
-
 
 const components = {
   page: Page,
@@ -30,11 +23,8 @@ const components = {
   teaser: Teaser,
   producten: ProductenComponent,
   hero: Hero,
-  about_section: AboutSection,
   sectie: Sectie,
   image: ImageComponent, // 👈 voeg image toe hier
-  imageblok1: imageblok1,
-  imageblok2: imageblok2,
 };
 
 storyblokInit({
@@ -42,7 +32,6 @@ storyblokInit({
   use: [apiPlugin],
   components: components as SbReactComponentsMap,
 });
-
 
 export default function StoryblokProvider({
   children,

@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  storyblokInit,
-  apiPlugin,
-} from "@storyblok/react";
+import { storyblokInit, apiPlugin } from "@storyblok/react";
 import type { SbReactComponentsMap } from "@storyblok/react";
 import Page from "./page.component";
 import Feature from "./Feature/Feature";
@@ -15,7 +12,6 @@ import "../components/Footer/footer.css";
 import "../components/header/navigation.css";
 import ProductenComponent from "./Homecomponent";
 import Hero from "./hero";
-import AboutSection from "./AboutSection";
 import Sectie from "./Sectie";
 
 const components = {
@@ -26,7 +22,6 @@ const components = {
   teaser: Teaser,
   producten: ProductenComponent,
   hero: Hero,
-  about_section: AboutSection,
   sectie: Sectie,
 };
 
