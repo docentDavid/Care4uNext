@@ -1,22 +1,24 @@
 /* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { i18n } = require('./i18nConfig');
+const { i18n } = require("./i18nConfig");
 
 let nextConfig = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack']
+      use: ["@svgr/webpack"],
     });
-    const rules = config.module.rules.find((rule) => typeof rule.oneOf === 'object').oneOf.filter((rule) => Array.isArray(rule.use));
+    const rules = config.module.rules
+      .find((rule) => typeof rule.oneOf === "object")
+      .oneOf.filter((rule) => Array.isArray(rule.use));
 
     rules.forEach((rule) => {
       rule.use.forEach((moduleLoader) => {
         if (/css-loader[/\\](?:cjs|dist|src)/.test(moduleLoader.loader)) {
-          if (typeof moduleLoader.options.modules === 'object') {
+          if (typeof moduleLoader.options.modules === "object") {
             moduleLoader.options.modules = {
               ...moduleLoader.options.modules,
-              exportLocalsConvention: 'camelCase'
+              exportLocalsConvention: "camelCase",
             };
           }
         }
@@ -31,18 +33,21 @@ let nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'a.storyblok.com',
-        port: '',
-        pathname: '/**'
-      }
-    ]
+        protocol: "https",
+        hostname: "a.storyblok.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
   experimental: {
-    scrollRestoration: true
+    scrollRestoration: true,
   },
   optimizeFonts: true,
-  poweredByHeader: false
+  poweredByHeader: false,
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 // Check if ANALYZE env is set en if true start bundle-analyzer
@@ -51,7 +56,7 @@ const analyzeBundles = process.env.ANALYZE;
 if (analyzeBundles) {
   const withNextBundleAnalyzer =
     // eslint-disable-next-line import/no-extraneous-dependencies
-    require('@next/bundle-analyzer')();
+    require("@next/bundle-analyzer")();
   nextConfig = withNextBundleAnalyzer(nextConfig);
 }
 

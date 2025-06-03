@@ -6,10 +6,7 @@ import Page from "./page.component";
 import Feature from "./Feature/Feature";
 import ThreeQuarterLayout from "./ThreeQuarterLayout/ThreeQuarterLayout";
 import Grid from "./Grid";
-
 import Teaser from "./Teaser";
-import "../components/Footer/footer.css";
-import "../components/header/navigation.css";
 import ProductenComponent from "./Homecomponent";
 import Hero from "./hero";
 import Sectie from "./Sectie";
@@ -24,7 +21,7 @@ const components = {
   producten: ProductenComponent,
   hero: Hero,
   sectie: Sectie,
-  image: ImageComponent, // 👈 voeg image toe hier
+  image: ImageComponent,
 };
 
 storyblokInit({
