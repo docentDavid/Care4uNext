@@ -48,6 +48,26 @@ let nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  webpackDevMiddleware: (config) => {
+    config.watchOptions = {
+      poll: 1000,
+      aggregateTimeout: 300,
+    };
+    return config;
+  },
+  headers: async () => {
+    return [
+      {
+        source: "/_next/static/css/:path*",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "text/css",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 // Check if ANALYZE env is set en if true start bundle-analyzer

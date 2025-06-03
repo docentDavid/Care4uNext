@@ -8,8 +8,6 @@ import ThreeQuarterLayout from "./ThreeQuarterLayout/ThreeQuarterLayout";
 import Grid from "./Grid";
 import "../app/globals.css";
 import Teaser from "./Teaser";
-import "../components/Footer/footer.css";
-import "../components/header/navigation.css";
 import ProductenComponent from "./Homecomponent";
 import Hero from "./hero";
 import Sectie from "./Sectie";

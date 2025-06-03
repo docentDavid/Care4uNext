@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import "./globals.css";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokProvider from "../components/StoryblokProvider";
@@ -9,6 +10,11 @@ storyblokInit({
   use: [apiPlugin],
 });
 
+export const metadata: Metadata = {
+  title: "Care4U",
+  description: "Pedicure salon Care4U",
+};
+
 export default async function RootLayout({
   children,
   params,
@@ -19,6 +25,10 @@ export default async function RootLayout({
   return (
     <StoryblokProvider>
       <html lang="nl">
+        <head>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </head>
         <body>
           <Navigation />
           {children}
