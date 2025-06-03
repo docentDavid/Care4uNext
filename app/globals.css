@@ -2,424 +2,772 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {}
+@layer base {
+}
 
-@layer utilities {}
+@layer utilities {
+}
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
 
 .Teaserhome {
-    background-color: #f0f0f0;
-    padding: 1rem;
-    border-radius: 0.5rem;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* -------------- navigatie --------------- */
+.header {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  background-color: #faf4ee;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 100vw;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 10vw;
+  height: 10vh;
+}
+
+.logocare4u {
+  width: 4vw;
+  height: 8vh;
+  object-fit: contain;
+}
+
+.navbarItems {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 5rem;
+  list-style: none;
+  margin: 0;
+  margin-right: 6%;
+  padding: 0;
+}
+
+.navbarItems li a {
+  text-decoration: none;
+  color: #8f7554;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbarItems li a:hover {
+  color: #5f4634;
+}
+
+.hamburgerMenu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+}
+
+.hamburgerMenu .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #8f7554;
+  transition: transform 0.3s ease;
+}
+
+/* Curtain menu */
+.curtainMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  background-color: #faf4ee;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  z-index: 1000;
+  box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menuOpen {
+  transform: translateX(0);
+}
+
+.curtainMenu ul {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  margin-top: 80px;
+  gap: 1.5rem;
+}
+
+.curtainMenu ul li a {
+  color: #8f7554;
+  font-size: 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.curtainMenu ul li a:hover {
+  color: #5f4634;
+}
+
+.menuClose {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  color: #5f4634;
+  cursor: pointer;
+  display: flex;
+}
+
+.menuClose img {
+  width: 30px;
+  height: 30px;
+}
+
+.logo2 {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 40%;
+  width: 100%;
+  height: 50vw;
+}
+
+.contactRightside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  color: #8f7554;
+  font-size: small;
+}
+
+.contactRightside h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contactRightside table td {
+  padding: 0.1rem 0.3rem;
+  white-space: nowrap;
+  text-align: left;
+  width: auto;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .navbarItems {
+    display: none;
+  }
+
+  .logocare4u {
+    width: 15vw;
+    height: 8vh;
+    margin-left: 20%;
+  }
+
+  .navbar ul {
+    gap: 2rem;
+  }
+
+  .hamburgerMenu {
+    display: flex;
+  }
+
+  .curtainMenu {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .navbarItems {
+    display: none;
+  }
+
+  .hamburgerMenu .bar {
+    width: 20px;
+    height: 2px;
+    gap: 1vh;
+    background-color: #8f7554;
+  }
+
+  .logocare4u {
+    width: 8vw;
+    height: 8vh;
+    margin-left: 20%;
+  }
+
+  .navbar ul {
+    gap: 2rem;
+  }
+
+  .hamburgerMenu {
+    display: flex;
+  }
+
+  .curtainMenu {
+    width: 50%;
+  }
 }
 
 /* ---------------------------- main ---------------  */
 
 .background {
-    background-image: url('/Images/background2.png');
-    background-size: cover;
-    background-position: center;
+  background-image: url("/Images/background2.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .sectie1 {
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    text-align: left;
-    color: #8F7554;
-    margin-left: 5vw;
-    width: 100vw;
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: left;
+  color: #8f7554;
+  margin-left: 5vw;
+  width: 100vw;
 }
 
 .content1 h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 .content1 p {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .buttondefault {
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
-    background-color: transparent;
-    border: 1px solid #8F7554;
-    color: #8F7554;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 10px;
-    text-decoration: none;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid #8f7554;
+  color: #8f7554;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  text-decoration: none;
 }
 
 .buttondefault:hover {
-    background-color: #8F7554;
-    color: white;
+  background-color: #8f7554;
+  color: white;
 }
 
 /* ---------------------- sectie2 ---------------- */
 
 .sectie2 {
-    background-color: #f9f4f0;
-    padding: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: #8F7554;
+  background-color: #f9f4f0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #8f7554;
 }
 
 .sectie2 .container {
-    max-width: 800px;
-    width: 90vw;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-top: 5px solid #8F7554;
-    z-index: 2;
+  max-width: 800px;
+  width: 90vw;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #8f7554;
+  z-index: 2;
 }
 
 .sectie2 .container ul {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .sectie2 h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .sectie2 p,
 .p2 {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-    display: flex;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  display: flex;
 }
 
 .p2 {
-    margin-left: 25px;
+  margin-left: 25px;
 }
 
 .sectie2 ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 1.5rem;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
 }
 
 .sectie2 ul li {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .sectie2 button {
-    padding: 0.75rem 1.5rem;
-    background-color: transparent;
-    border: 1px solid #8F7554;
-    color: #8F7554;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid #8f7554;
+  color: #8f7554;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .sectie2 button:hover {
-    background-color: #8F7554;
-    color: white;
+  background-color: #8f7554;
+  color: white;
 }
 
 .selfie {
-    display: flex;
-    margin-left: -5%;
-    z-index: 1;
-    width: 30vw;
+  display: flex;
+  margin-left: -5%;
+  z-index: 1;
+  width: 30vw;
 }
 
 .titel {
-    width: 100vw;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ---------------------- blokken ---------------- */
 
 .bloks {
-    display: flex;
-    width: 83vw;
+  display: flex;
+  width: 83vw;
 }
 
 .bloks a {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .blok1,
 .blok2,
 .blok3,
 .blok4 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20vh;
-    width: 20vw;
-    background-color: white;
-    margin: 2%;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    flex-direction: column;
-    font-size: 20px;
-    color: #8F7554;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  width: 20vw;
+  background-color: white;
+  margin: 2%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  font-size: 20px;
+  color: #8f7554;
 }
 
 .blok1:hover,
 .blok2:hover,
 .blok3:hover,
 .blok4:hover {
-    background-color: #8F7554;
-    color: white;
+  background-color: #8f7554;
+  color: white;
 }
 
 .blok1:hover a,
 .blok2:hover a,
 .blok3:hover a,
 .blok4:hover a {
-    color: white;
+  color: white;
 }
 
 .blok11,
 .blok22,
 .blok33,
 .blok44 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    width: 10vw;
-    border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  width: 10vw;
+  border-radius: 5px;
 }
 
 .socialicon {
-    width: 50%;
-    height: auto;
-    display: block;
+  width: 50%;
+  height: auto;
+  display: block;
 }
 
 .blok1 p,
 .blok2 p,
 .blok3 p,
 .blok4 p {
-    margin-top: 8%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+  margin-top: 8%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* sectie3 */
 .sectie3 {
-    background-color: #f9f4f0;
-    height: 30vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: #f9f4f0;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* icon hovers */
 .blok1:hover .socialicon {
-    content: url('/Images/whatsapp-svgrepo-com (wit).svg');
+  content: url("/Images/whatsapp-svgrepo-com (wit).svg");
 }
 
 .blok2:hover .socialicon {
-    content: url('/Images/mail-svgrepo-com (wit).svg');
+  content: url("/Images/mail-svgrepo-com (wit).svg");
 }
 
 .blok3:hover .socialicon {
-    content: url('/Images/facebook-svgrepo-com (wit).svg');
+  content: url("/Images/facebook-svgrepo-com (wit).svg");
 }
 
 .blok4:hover .socialicon {
-    content: url('/Images/instagram-svgrepo-com (wit).svg');
+  content: url("/Images/instagram-svgrepo-com (wit).svg");
 }
 
 /* lijnen */
 .line,
 .line2 {
-    width: 100%;
-    height: 1px;
-    background: #8F7554;
-    margin-bottom: 3%;
+  width: 100%;
+  height: 1px;
+  background: #8f7554;
+  margin-bottom: 3%;
 }
 
 .line {
-    margin-top: -1%;
+  margin-top: -1%;
 }
 
 /* responsive */
 @media (max-width: 768px) {
-    .sectie2 {
-        flex-direction: column;
-    }
+  .sectie2 {
+    flex-direction: column;
+  }
 
-    .sectie2 .container {
-        width: 90vw;
-    }
+  .sectie2 .container {
+    width: 90vw;
+  }
 
-    .sectie2 p {
-        font-size: 13px;
-        flex-direction: column;
-    }
+  .sectie2 p {
+    font-size: 13px;
+    flex-direction: column;
+  }
 
-    .sectie2 h2 {
-        font-size: 1.5rem;
-    }
+  .sectie2 h2 {
+    font-size: 1.5rem;
+  }
 
-    .selfie {
-        width: 100%;
-        margin-left: 0 !important;
-        margin-bottom: 1rem;
-        border-radius: 5% !important;
-    }
+  .selfie {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-bottom: 1rem;
+    border-radius: 5% !important;
+  }
 
-    .bloks {
-        overflow-x: scroll;
-        flex-direction: column;
-        width: 100%;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 1rem;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+  .bloks {
+    overflow-x: scroll;
+    flex-direction: column;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 
-    .blok1,
-    .blok2,
-    .blok3,
-    .blok4 {
-        flex: 0 0 auto;
-        width: 90%;
-        height: 20vh;
-        margin: 1rem auto;
-        scroll-snap-align: start;
-    }
+  .blok1,
+  .blok2,
+  .blok3,
+  .blok4 {
+    flex: 0 0 auto;
+    width: 90%;
+    height: 20vh;
+    margin: 1rem auto;
+    scroll-snap-align: start;
+  }
 
-    .socialicon {
-        width: 30%;
-    }
+  .socialicon {
+    width: 30%;
+  }
 
-    .blok11,
-    .blok22,
-    .blok33,
-    .blok44 {
-        width: 30%;
-    }
+  .blok11,
+  .blok22,
+  .blok33,
+  .blok44 {
+    width: 30%;
+  }
 }
 
 /* ---------------------- behandeling sectie ---------------- */
 
 .behandelingsectie1 {
-    padding: 2rem;
-    text-align: center;
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    text-align: left;
-    color: #8F7554;
-    margin-left: 5vw;
+  padding: 2rem;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: left;
+  color: #8f7554;
+  margin-left: 5vw;
 }
 
 .behandelingsectie1 .content1 {
-    max-width: 600px;
-    margin: 0 auto;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .behandelingsectie1 h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 .behandelingsectie1 p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
 }
 
 .blokken {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .blok1,
 .blok2,
 .blok3,
 .blok4 {
-    flex: 1 1 300px;
-    max-width: 400px;
+  flex: 1 1 300px;
+  max-width: 400px;
 }
 
 .image {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .informatie {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .informatie h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .informatie p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #666;
 }
 
 .absolute-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .homeblokheadline {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .homebloksubheadline {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
+}
+
+/* ------------------------ Footer ------------------------ */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #8f7554;
+  color: white;
+  padding: 2rem 5%;
+  font-family: "Tenor Sans", sans-serif;
+  margin-top: 10vh;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: 0vw;
+}
+
+.logo1 {
+  width: 8rem;
+  height: auto;
+  max-height: 20vh;
+}
+
+/* Contactgegevens & Openingstijden uitlijnen */
+.contact-left,
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Contactgegevens netjes onder elkaar */
+.contact-left table,
+.contact-right table {
+  margin-left: 0;
+  width: auto;
+}
+
+/* Uitlijning icoontjes en tekst */
+.contact-left table tr,
+.contact-right table tr {
+  display: flex;
+}
+
+/* Uitlijning tijden */
+.contact-left table td,
+.contact-right table td {
+  padding: 0.3rem 1rem;
+  white-space: nowrap;
+  text-align: left;
+  width: auto;
+  text-decoration: none !important;
+}
+
+/* Contacticoontjes & uitlijning */
+.contact-left table td:first-child {
+  width: 0.5rem;
+  text-align: center;
+}
+
+.contact-right table td:nth-child(1) {
+  text-align: left;
+  width: 3rem;
+  /* Zorgt dat dagen goed uitgelijnd zijn */
+}
+
+.contact-right table td:nth-child(2),
+.contact-right table td:nth-child(3) {
+  text-align: center;
+  width: 6rem;
+  /* Zorgt dat de tijden consistent zijn */
+}
+
+/* Extra ruimte tussen titels en inhoud */
+.contact-left h2,
+.contact-right h2 {
+  margin-bottom: 0.5rem;
+}
+
+/* Tekstkleur wit om consistent te blijven */
+.contact-left table td,
+.contact-right table td {
+  color: white;
+}
+
+.contact-left a,
+.contact-right a {
+  text-decoration: none;
+  color: white;
+}
+
+.contact-left img {
+  width: 1vw;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    width: 100vw;
+    max-width: 100vw;
+    justify-content: center;
+    align-items: center;
+    font-size: smaller;
+    align-self: center;
+    padding: 0%;
+  }
+
+  .contact-left,
+  .contact-right {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    margin-left: 30px;
+    margin-bottom: 30px;
+  }
+
+  .contact-left img,
+  .contact-right img {
+    width: 5vw;
+  }
+
+  .imgfooter {
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
 }

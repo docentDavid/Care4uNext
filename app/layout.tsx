@@ -3,8 +3,6 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokProvider from "../components/StoryblokProvider";
 import Navigation from "../components/header/Navigation";
 import Footer from "../components/Footer/Footer";
-import "../components/header/navigation.css";
-import "../components/Footer/footer.css";
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN,
